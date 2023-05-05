@@ -31,6 +31,11 @@ const [state, dispatch]= useReducer(GithubReducer,initialState)
 const setLoading= () =>{
     dispatch({type: 'SET_LOADING'})
 }
-    return <GithubContext.Provider value={{users: state.users, loading: state.loading,searchUser}}>{children}</GithubContext.Provider>
+
+const clearUser = () => {
+    dispatch({type: 'CLEAR_USER'})
+}
+
+    return <GithubContext.Provider value={{users: state.users, loading: state.loading,searchUser,clearUser}}>{children}</GithubContext.Provider>
 }
 export default GithubContext
